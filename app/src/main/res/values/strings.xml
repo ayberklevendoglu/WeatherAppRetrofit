@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WeatherAppRetrofit</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="feels_like">Feels like</string>
+    <string name="min_temp">Min temp</string>
+    <string name="max_temp">Max temp</string>
+    <string name="_20_c">20°</string>
+</resources>
