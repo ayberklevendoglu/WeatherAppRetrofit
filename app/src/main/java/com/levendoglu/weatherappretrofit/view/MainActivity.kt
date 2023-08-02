@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
                             .centerCrop()
                             .into(binding.imgWeather)
 
-
                         binding.apply {
                             temp.text = "${ response.body()!!.main.temp.toUInt() }°"
                             updated.text= "Updated at : " + viewModel.dateConverter(data.dt.toLong())
@@ -77,12 +76,11 @@ class MainActivity : AppCompatActivity() {
                             tvHumidity.text = "${data.main.humidity} %"
                         }
 
-
-                        if (data.clouds.all <= 10) binding.status.text = "Clear Sky"
-                        if (data.clouds.all in 11..25) binding.status.text = "Few Clouds"
-                        if (data.clouds.all in 26..50) binding.status.text = "Scattered Clouds"
-                        if (data.clouds.all in 51..84) binding.status.text = "Broken Clouds"
-                        if (data.clouds.all in 86..100) binding.status.text = "Overcast Clouds"
+                        if (data.clouds.all > 85) binding.status.text = "Overcast Clouds"
+                        else if (data.clouds.all > 50) binding.status.text = "Broken Clouds"
+                        else if (data.clouds.all > 25) binding.status.text = "Scattered Clouds"
+                        else if (data.clouds.all > 10) binding.status.text = "Few Clouds"
+                        else binding.status.text = "Clear Sky"
                     }
                 }
             }
